@@ -1,0 +1,24 @@
+name: keystone
+version: ocata
+summary: OpenStack Identity Service (keystone)
+description: |
+  Keystone provides authentication, authorization and service discovery
+  mechanisms via HTTP primarily for use by projects in the OpenStack
+  family. It is most commonly deployed as an HTTP interface to existing
+  identity systems, such as LDAP.
+confinement: strict
+grade: devel
+
+parts:
+  keystone:
+    plugin: python
+    python-version: python2
+    source: http://tarballs.openstack.org/keystone/keystone-master.tar.gz
+    constraints: https://raw.githubusercontent.com/openstack/requirements/master/upper-constraints.txt
+    build-packages:
+      - libffi-dev
+      - libssl-dev
+      - libxml2-dev
+      - libxslt1-dev
+      - pkg-config
+      - gcc
